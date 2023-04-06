@@ -13,16 +13,29 @@ if sys.version_info < (3, 9):
 else:
     # importlib.resources has files(), so use that:
     import importlib.resources as importlib_resources
-
-def main():
+    
+def run(**kwargs):
+    text: str = kwargs.get("text", "A")
+    color: str = kwargs.get("color", "default").lower()
+    colors = {
+        "default": (255, 255, 255, 230),
+        "gray": (151, 154, 155, 242),
+        "brown": (147, 114, 100, 255),
+        "orange": (255, 163, 68, 255),
+        "yellow": (255, 220, 73, 255),
+        "green": (77, 171, 154, 255),
+        "blue": (82, 156, 202, 255),
+        "purple": (154, 109, 215, 255),
+        "pink": (226, 85, 161, 255),
+        "red": (255, 115, 105, 255),
+    }
+    color_tuple = colors.get(color, colors["default"])
+    
     from PIL import Image, ImageDraw, ImageFont
 
     # 이미지 크기 설정
     width, height = 280, 280
-
-    # 배경색 설정 (파란색, 알파 255)
-    purple = (154, 109, 215, 255)
-    background_color = purple
+    background_color = color_tuple
     font_file = str(importlib_resources.path("hvppyicon.assets", "Helvetica-Bold-Font.ttf"))
     print(font_file)
     color_in_hex = rgb_to_hex(background_color)
@@ -31,9 +44,6 @@ def main():
 
     # 텍스트 색 설정
     text_color = (255, 255, 255, 0)
-
-    # 텍스트 
-    text = "D"
 
     font_size = 192 + 32
 
@@ -74,3 +84,15 @@ def main():
     # 이미지 저장 (투명한 부분 포함)
     image.save(f"hvppyicon_{text}_{width}x{height}_{color_in_hex}.png", format="PNG")
 
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser()
+    
+    parser.add_argument("-c", "--color", type=str, help="Enter color name")
+    parser.add_argument("character", type=str, help="Enter a character")
+    
+    args = parser.parse_args()
+    
+    run(color=args.color, text=args.character)
+    
