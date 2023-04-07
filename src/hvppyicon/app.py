@@ -36,7 +36,8 @@ def run(**kwargs):
     # 이미지 크기 설정
     width, height = 280, 280
     background_color = color_tuple
-    font_file = str(importlib_resources.path("hvppyicon.assets", "Helvetica-Bold-Font.ttf"))
+    with importlib_resources.path("hvppyicon.assets", "Helvetica-Bold-Font.ttf") as p:
+        font_file = str(p)
     print(font_file)
     color_in_hex = rgb_to_hex(background_color)
     # 모서리 둥글기 반지름 설정
