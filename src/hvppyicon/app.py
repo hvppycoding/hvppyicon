@@ -39,7 +39,7 @@ def run(**kwargs):
     background_color = color_tuple
     with importlib_resources.path("hvppyicon.assets", "Helvetica-Bold-Font.ttf") as p:
         font_file = str(p)
-    print(font_file)
+    # print(font_file)
     color_in_hex = rgb_to_hex(background_color)
     # 모서리 둥글기 반지름 설정
     corner_radius = 64 - 16
@@ -74,7 +74,7 @@ def run(**kwargs):
     # 텍스트 크기 계산
     #_, _, text_width, text_height = draw.textbbox((0, 0), text, font)
     text_width, text_height = font.getsize(text)
-    print(f"text_width: {text_width}, text_height: {text_height}")
+    # print(f"text_width: {text_width}, text_height: {text_height}")
 
     # 텍스트 위치 계산 (이미지 가운데)
     text_x = (width - text_width) // 2

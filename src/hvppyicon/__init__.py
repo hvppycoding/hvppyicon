@@ -1,0 +1,1 @@
+from hvppyicon.app import run
