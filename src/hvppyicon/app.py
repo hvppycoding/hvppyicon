@@ -17,6 +17,7 @@ else:
 def run(**kwargs):
     text: str = kwargs.get("text", "A")
     color: str = kwargs.get("color", "default").lower()
+    output: str = kwargs.get("output", "")
     colors = {
         "default": (255, 255, 255, 230),
         "gray": (151, 154, 155, 242),
@@ -83,7 +84,10 @@ def run(**kwargs):
     draw.text((text_x + offset_x, text_y + offset_y), text, fill=text_color, font=font)
 
     # 이미지 저장 (투명한 부분 포함)
-    image.save(f"hvppyicon_{text}_{width}x{height}_{color_in_hex}.png", format="PNG")
+    if output:
+        image.save(output, format="PNG")
+    else:
+        image.save(f"hvppyicon_{text}_{width}x{height}_{color_in_hex}.png", format="PNG")
 
 
 def main():
@@ -92,8 +96,9 @@ def main():
     
     parser.add_argument("-c", "--color", type=str, help="Enter color name")
     parser.add_argument("character", type=str, help="Enter a character")
+    parser.add_argument("-o", "--output", type=str, help="Enter the output filename")
     
     args = parser.parse_args()
     
-    run(color=args.color, text=args.character)
+    run(color=args.color, text=args.character, output=args.output)
     
