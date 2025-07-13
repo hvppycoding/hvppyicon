@@ -1,20 +1,46 @@
 # hvppyicon
 
-An alphabet icon generator for Notion
+Hvppyicon is an alphabet icon generator for Notion.
 
-Available color list:  
+You can generate single-letter icons with rounded corners, background colors, and optional RGBA customization.
 
-- gray
-- brown
-- orange
-- yellow
-- green
-- blue
-- purple
-- pink
-- red
+---
 
-## Install
+## 🎨 Available Preset Colors
+
+You can use one of the following named colors via `-c` or `--color`:
+
+* `gray`
+* `brown`
+* `orange`
+* `yellow`
+* `green`
+* `blue`
+* `purple`
+* `pink`
+* `red`
+
+These map to predefined RGBA values for convenience.
+
+---
+
+## ⚙️ New: Custom RGBA Colors
+
+You can now pass RGBA values directly to override background and font colors.
+
+### ✅ Example
+
+```bash
+hvppyicon -bg "rgba(255, 255, 255, 255)" -fc "rgba(0, 0, 0, 255)" A
+```
+
+* `--bg-color` (`-bg`): background color in `"rgba(R,G,B,A)"` format
+* `--font-color` (`-fc`): font color in `"rgba(R,G,B,A)"` format
+* `--yoffset`: vertical text adjustment in pixels (e.g. `--yoffset -10`)
+
+---
+
+## 🛠️ Installation
 
 ```bash
 git clone https://github.com/hvppycoding/hvppyicon.git
@@ -22,17 +48,45 @@ cd hvppyicon
 pip install .
 ```
 
-## Example
+---
 
-`hvppyicon -c red -o red_A.png A`
+## ✏️ Usage Examples
+
+### Using a preset color
+
+```bash
+hvppyicon -c red -o red_A.png A
+```
+
+### Using RGBA colors
+
+```bash
+hvppyicon -bg "rgba(240, 240, 240, 255)" -fc "rgba(50, 50, 50, 255)" -o custom_A.png A
+```
+
+### Adjusting vertical alignment
+
+```bash
+hvppyicon -c blue --yoffset -16 -o adjusted_A.png A
+```
+
+---
+
+## 📷 Output Preview
 
 ![Example](doc/example_red_A.png)
 
-## Application on Notion
+---
+
+## 📘 Application in Notion
+
+These icons can be uploaded as image blocks or page icons in Notion.
 
 ![Application Example](doc/application_example.png)
 
-## Prebuilt Images
+---
+
+## 📦 Prebuilt Images
 
 Use these images by 'Copy Image Link'.
 
@@ -270,3 +324,29 @@ Use these images by 'Copy Image Link'.
 ![Z_pink.png](doc/images/Z_pink.png)
 ![Z_brown.png](doc/images/Z_brown.png)
 ![Z_gray.png](doc/images/Z_gray.png)
+![A_white.png](doc/images/A_white.png)
+![B_white.png](doc/images/B_white.png)
+![C_white.png](doc/images/C_white.png)
+![D_white.png](doc/images/D_white.png)
+![E_white.png](doc/images/E_white.png)
+![F_white.png](doc/images/F_white.png)
+![G_white.png](doc/images/G_white.png)
+![H_white.png](doc/images/H_white.png)
+![I_white.png](doc/images/I_white.png)
+![J_white.png](doc/images/J_white.png)
+![K_white.png](doc/images/K_white.png)
+![L_white.png](doc/images/L_white.png)
+![M_white.png](doc/images/M_white.png)
+![N_white.png](doc/images/N_white.png)
+![O_white.png](doc/images/O_white.png)
+![P_white.png](doc/images/P_white.png)
+![Q_white.png](doc/images/Q_white.png)
+![R_white.png](doc/images/R_white.png)
+![S_white.png](doc/images/S_white.png)
+![T_white.png](doc/images/T_white.png)
+![U_white.png](doc/images/U_white.png)
+![V_white.png](doc/images/V_white.png)
+![W_white.png](doc/images/W_white.png)
+![X_white.png](doc/images/X_white.png)
+![Y_white.png](doc/images/Y_white.png)
+![Z_white.png](doc/images/Z_white.png)
